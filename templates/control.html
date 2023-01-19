@@ -1,0 +1,24 @@
+{% extends "dashboard.html" %}
+{% block title %}Schedule Me Boy{% endblock %}
+{% block content %}
+	<section class="buttons mt-3">
+		<a href="{{ url_for('scd.add') }}"><button class="btn btn-primary">Add Event</button></a>
+		<a href="{{ url_for('scd.remove') }}"><button class="btn btn-danger">Remove Event</button></a>
+	</section>
+	<section class="list-group overflow-auto mt-3">
+		{% if not events %}
+			<p> No elements in the list </p>
+		{% else %}
+			{% for event in events%}
+				<article class="list-group-item list-group-item-action flex-column align-items-start list-group-item-primary">
+					<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1">{{ event.name }} </h5>
+						<small>Date: {{ event.date }} </small>
+					</div>
+					<small class="mr-4"> Starts at: {{ event.start }} </small>
+					<small> Ends at: {{ event.end }} </small>
+				</article>		
+			{% endfor %}
+		{% endif %}
+	</section>
+{% endblock %}

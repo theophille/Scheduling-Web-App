@@ -1,0 +1,21 @@
+{% extends "auth.html" %}
+{% from "macros.html" import input %}
+{% block title %}LogIn{% endblock %}
+{% block form %}
+<form action="{{ url_for('auth.logged') }}" method="post">
+	<div class="form-outline mb-4">
+		{{ form.username.label(class_="form-label") }}
+		{{ form.username(class_="form-control form-control-lg") }}
+	</div>
+	<div class="form-outline mb-3">
+		{{ form.password.label(class_="form-label") }}
+		{{ form.password(class_="form-control form-control-lg") }}
+	</div>
+	<div class="text-center text-lg-start mt-4">
+		{{ form.submit(class_="btn btn-primary") }}
+		<p class="small fw-bold mt-2 pt-1 mb-0"> Don't have an account?
+			<a href="{{ url_for('auth.signup_page') }}" class="link-danger"> Register </a>
+		</p>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "dashboard.html" %}
+{% block title %}Schedule Me Boy | Add{% endblock %}
+{% block content %}
+<form action="{{ url_for('scd.add_validate') }}" method="post">
+    <div class="form-outline mb-4">
+        {{ form.name.label(class_="form-label") }}
+        {{ form.name(class_="form-control form-control-lg") }}
+    </div>
+    <div class="form-outline mb-4">
+        {{ form.date.label(class_="form-label") }}
+        {{ form.date(class_="form-control form-control-lg") }}
+    </div>
+    <div class="form-outline mb-4">
+        {{ form.start.label(class_="form-label") }}
+        {{ form.start(class_="form-control form-control-lg") }}
+    </div>
+    <div class="form-outline mb-4">
+        {{ form.end.label(class_="form-label") }}
+        {{ form.end(class_="form-control form-control-lg") }}
+    </div>
+    {{ form.submit(class_="btn btn-primary") }}
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title> {% block title %} {% endblock %} </title>
+</head>
+<body>
+	<section class="vh-100">
+		<div class="container-fluid vh-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-md-9 col-lg-6 col-xl-5">
+					<img src="{{ url_for('static', filename='plan.webp') }}" class="img-fluid" alt="scheduler_vector_graphics">
+				</div>
+				<div class="col-md-9 col-lg-6 col-xl-5">
+					<div class="form-box">
+							<h1>{{ form_box_title }}</h1>
+							{% block form %} {% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+</body>
+</html>

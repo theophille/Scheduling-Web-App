@@ -1,0 +1,14 @@
+FROM python:3.10
+
+RUN mkdir /cron_serv
+WORKDIR /cron_serv
+
+COPY ./cron.py .
+COPY ./req_cron.txt .
+COPY ./run_script_periodically.sh .
+RUN chmod +x ./run_script_periodically.sh
+
+RUN pip install --upgrade pip
+RUN pip3 install -r req_cron.txt
+
+CMD [ "./run_script_periodically.sh" ]
